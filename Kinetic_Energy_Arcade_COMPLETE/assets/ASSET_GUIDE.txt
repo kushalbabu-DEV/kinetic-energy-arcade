@@ -1,0 +1,8 @@
+# Project assets
+
+- `images/arcade_bolt.png`: pixel-art logo made for this project.
+- `sounds/start.wav`: short synthesized arcade start tone.
+- `sounds/collision.wav`: short synthesized collision sound.
+- `sounds/score.wav`: short synthesized score tone.
+
+The current Streamlit app includes sound players in the Velocity Run section and uses the image on the title screen. Collision sound is provided as a bundled asset for future automatic playback integration.
