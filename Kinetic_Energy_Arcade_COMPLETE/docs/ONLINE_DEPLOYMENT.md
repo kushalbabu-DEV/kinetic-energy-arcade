@@ -1,26 +1,48 @@
-# Online deployment checklist
+# Publishing Kinetic Energy Arcade
 
-## Before deployment
-- [ ] Run locally with `py -m streamlit run app.py`.
-- [ ] Test all five menu options.
-- [ ] Test the collision with Object A = 5 m/s and Object B = 0 m/s.
-- [ ] Test the roller coaster at 0%, 50% and 100%.
-- [ ] Confirm the `assets` folder is present.
+The project is a Streamlit web application. Its entry point is:
 
-## GitHub upload
-Upload the contents of `Kinetic_Energy_Arcade_COMPLETE` to a GitHub repository:
-- `app.py`
-- `requirements.txt`
-- `README.md`
-- `assets/images/arcade_bolt.png`
-- `assets/sounds/*.wav`
+`Kinetic_Energy_Arcade_COMPLETE/app.py`
 
-## Streamlit Community Cloud
-1. Sign in to Streamlit Community Cloud using GitHub.
-2. Select **Create app**.
-3. Select the repository and `main` branch.
-4. Set main file path to `app.py`.
-5. Deploy.
-6. Test the public URL in a private/incognito browser window.
+## Existing Streamlit Community Cloud deployment
 
-The public website will run while the hosting service is available. Keep the GitHub repository as the source of truth for future updates.
+If this repository already has a deployed app, keep the existing deployment and main-file path. Push changes to the branch connected to Streamlit Community Cloud; the app should rebuild from the updated commit.
+
+## Create a new deployment
+
+1. Push the project to GitHub.
+2. Open [Streamlit Community Cloud](https://share.streamlit.io/).
+3. Select **Create app** and choose this repository and the `main` branch.
+4. Enter `Kinetic_Energy_Arcade_COMPLETE/app.py` as the main file path.
+5. Deploy. Dependencies are read from `Kinetic_Energy_Arcade_COMPLETE/requirements.txt`.
+
+## Test locally before publishing
+
+From the project folder:
+
+```powershell
+py -m pip install -r requirements.txt
+py -m streamlit run app.py
+```
+
+Then open `http://localhost:8501`.
+
+## Update the repository from Windows
+
+From the repository root:
+
+```powershell
+git status
+git add Kinetic_Energy_Arcade_COMPLETE
+git commit -m "Upgrade Kinetic Energy Arcade to version 2.0"
+git push
+```
+
+Keep the folder name `Kinetic_Energy_Arcade_COMPLETE` unchanged. Do not create another nested copy of the project folder.
+
+## If deployment fails
+
+- Confirm the main file path is `Kinetic_Energy_Arcade_COMPLETE/app.py`.
+- Check that `requirements.txt` is in the same project folder as `app.py`.
+- Open the app's Streamlit Cloud dashboard and inspect the latest deployment logs.
+- Run the app locally using the commands above to separate code issues from deployment configuration issues.
